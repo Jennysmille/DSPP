@@ -8,16 +8,13 @@
 	<body>
 		<?php require_once("head.php"); ?>
 
-		<div class="container">
+		<div class="container-center">
 			<div class="row">
 			<div class="col-sm-12">
-				<h1>Bienvenue</h1>
+				<h1 class="title">Bienvenue</h1>
 
-				<h4>Retrouvez nous !</h4><br>
-				<span><i class="fa fa-facebook"></i></span>
-				<span><i class="fa fa-twitter"></i></span>
-				<span><i class="fa fa-google"></i></span>
-				<br><br><hr>
+<p>Un site web qui va permettre de stocker tous nos projets de l'entreprise</p>
+<p>Igloo Communication...</p>
 
 			</div>
 			</div>
