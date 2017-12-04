@@ -25,14 +25,11 @@ $req->execute(array(
 'comments' => $comments
 ));
 
-echo "<p>Le project à bien été créé</p>";
-
+//Projet ajouter
 $id_new_project = $bdd->lastInsertId();
 //print_r($id_new_project);
-echo "<p>Le plugin à bien été envoyé</p>";
 
-
-
+//Plugin ajouter
 foreach($_POST['plugins'] as $id_plugin)
 { //print_r ($id_plugin);
 	$req2 = $bdd->prepare('INSERT INTO projects_plugins (id_projects, id_plugins) VALUES(?, ?)');
@@ -40,4 +37,27 @@ foreach($_POST['plugins'] as $id_plugin)
 }
 
 ?>
-<a href="listing_projects.php">retour à la liste des projets</a>
+<!DOCTYPE html>
+<html>
+	<head>
+		 <?php require_once("header_meta.php"); ?>
+		   <link rel="stylesheet" type="text/css" href="./assets/css/site.css">
+	<title>traitement_projects</title>
+	</head>
+	<body>
+		<?php require_once("head.php"); ?>
+
+		<div class="row">
+			<div class="container">
+				<div class="col-lg-12 ajout">
+					<!-- <h1 class="ajout">Confirmation !</h1> -->
+
+					<p class="para">Le project a bien été créé</p>
+					<p class="para">Le plugin a bien été envoyé</p>
+
+					<a href="listing_projects.php">Retour à la liste des projets</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

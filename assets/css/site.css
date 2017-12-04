@@ -1,9 +1,18 @@
-body{
-  margin: 0;
-  padding: 0;
+.title{
+  text-align: center;
+  font-weight: bold;
 }
 
-.title{
-  margin-top: 80px;
-  margin-right: 290px;
+p{
+  text-align: center;
+  font-weight: bold;
+
+}
+
+.btn.btn-primary.pull-left {
+    margin-left: 0px;
+}
+
+.ajout{
+  text-align: center;
 }

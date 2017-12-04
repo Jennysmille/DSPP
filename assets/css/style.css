@@ -1,10 +1,6 @@
 body{
   margin: 0;
   padding: 0;
-  background: url(/igloo/img/blanc.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   font-family: sans-serif;
 }
 p{

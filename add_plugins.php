@@ -46,7 +46,7 @@
 
 						<div class="row">
 							<div class="col-sm-12">
-							<button type="submit" class="btn btn-primary" value="Valider">Valider</button>
+							<button type="submit" class="btn btn-primary" value="Valider">Valider</button><br/><br/><br/><br/><br/>
 						</div>
 						</div>
 							</div>

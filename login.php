@@ -41,8 +41,8 @@ if (isset($_POST['formconnect']))
 <html>
   <head>
     <?php require_once("header_meta.php"); ?>
-  <link rel="stylesheet" type="text/css" href="style.css">
-     <title></title>
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+     <title>Se connecter</title>
   </head>
   <body>
 
@@ -66,7 +66,7 @@ if (isset($_POST['formconnect']))
                 <div class="form-group">
                   <p>Mot de passe</p>
                   <input type="password" name="mdpconnect" class="form-control" placeholder="Entrez votre mot de passe">
-                </div>
+                </div><br>
 
                 <div class="form-group">
                   <input type="submit" name="formconnect" class="btn btn-success btn-lg btn-block" value="Valider">
@@ -74,13 +74,12 @@ if (isset($_POST['formconnect']))
               </form>
               <?php
               if(isset($erreur)) {
-                 echo '<font color="red">'.$erreur."</font>";
+                 echo '<font color="white">'.$erreur."</font>";
               }
               ?>
             </div>
             <div class="lock"><i class="fa fa-lock fa-3x"></i></div>
             <div class="label">Connexion</div>
-            <div class="label2"></div>
           </div>
         </div>
       </div>

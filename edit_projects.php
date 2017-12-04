@@ -129,8 +129,7 @@ $donnees = $requete->fetch(PDO::FETCH_ASSOC);
 
                      }
                      $requete->closeCursor();
-
-                 ?>
+              ?>
 
                  <br/><br/>
 				</div>

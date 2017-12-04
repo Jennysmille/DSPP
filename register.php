@@ -79,8 +79,8 @@ if (isset($_POST['forminscription']))
 <html>
   <head>
     <?php require_once("header_meta.php"); ?>
-    <link rel="stylesheet" type="text/css" href="style.css">
-     <title></title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+     <title>S'inscrire</title>
   </head>
   <body>
     <div class="container" style="margin-top: 100px;">
@@ -112,7 +112,7 @@ if (isset($_POST['forminscription']))
                 <div class="form-group">
                   <p>Répétez votre mot de passe</p>
                   <input type="password" name="mdp2" class="form-control" placeholder="Répétez votre mot de passe" id="mdp2">
-                </div>
+                </div><br>
 
                 <div class="form-group">
                   <input type="submit" name="forminscription" class="btn btn-success btn-lg btn-block" value="Je m'inscris">
@@ -120,7 +120,7 @@ if (isset($_POST['forminscription']))
               </form>
               <?php
               if(isset($erreur)) {
-                 echo '<font color="red">'.$erreur."</font>";
+                 echo '<font color="white">'.$erreur."</font>";
               }
               ?>
             </div>

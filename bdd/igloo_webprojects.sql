@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 11 Novembre 2017 à 15:36
+-- Généré le :  Lun 20 Novembre 2017 à 14:14
 -- Version du serveur :  5.5.55-0+deb8u1
 -- Version de PHP :  5.6.30-0+deb8u1
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `cms_languages` (
 `id` int(11) NOT NULL,
   `nom` varchar(225) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `cms_languages`
@@ -39,10 +39,7 @@ INSERT INTO `cms_languages` (`id`, `nom`) VALUES
 (35, 'Joomla'),
 (36, 'Wordpress'),
 (37, 'Drupal'),
-(39, 'Spip'),
-(42, 'Prestashop'),
-(43, 'Typo3'),
-(44, 'hallo');
+(38, 'Prestashop');
 
 -- --------------------------------------------------------
 
@@ -54,23 +51,23 @@ CREATE TABLE IF NOT EXISTS `plugins` (
 `id` int(11) NOT NULL,
   `nom` varchar(225) NOT NULL,
   `id_cms_language` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS POUR LA TABLE `plugins`:
+--   `id_cms_language`
+--       `cms_languages` -> `id`
+--
 
 --
 -- Contenu de la table `plugins`
 --
 
 INSERT INTO `plugins` (`id`, `nom`, `id_cms_language`) VALUES
-(5, 'Orange', 35),
-(6, 'SFR', 36),
-(7, 'SLG', 35),
-(8, 'Gravity', 37),
-(9, 'Plug', 39),
-(10, 'Plugin2', 36),
-(11, 'Special Typo3', 43),
-(12, '1an1', 42),
-(13, 'grave', 35),
-(14, 'avenir', 44);
+(15, 'Gravity Forms', 36),
+(16, 'Site map', 38),
+(17, 'Xpert Scrollbar', 35),
+(18, 'Block class', 37);
 
 -- --------------------------------------------------------
 
@@ -86,19 +83,25 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `hebergeur` varchar(255) NOT NULL,
   `id_statut` int(11) NOT NULL,
   `comments` varchar(225) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS POUR LA TABLE `projects`:
+--   `id_cms`
+--       `cms_languages` -> `id`
+--   `id_statut`
+--       `statuts` -> `id`
+--
 
 --
 -- Contenu de la table `projects`
 --
 
 INSERT INTO `projects` (`id`, `project_name`, `id_cms`, `version`, `hebergeur`, `id_statut`, `comments`) VALUES
-(84, 'Lundi25updated2', 35, '4.0.2', 'planethoster', 8, 'new comment 2'),
-(85, 'Typo3 Proj9', 43, '11', 'local', 7, 'en test'),
-(86, 'Casino', 42, '5.5.9', 'planethoster', 7, 'Bonjour'),
-(87, 'Night2018', 42, '2.1.9', 'placebo', 9, 'héhé!!'),
-(107, 'Vendredi', 36, '3.5.8', 'OVH', 8, 'bonjour'),
-(108, 'toto', 35, '1', 'TITI', 7, 'YES I DO');
+(122, 'Hôtel de ville', 36, '4.3.3', 'OVH', 9, 'En cours de développement'),
+(123, '1,2,3 Beauty', 38, '3.6.9', '1&1', 8, 'En construction'),
+(124, 'Makeup Artist', 35, '4.3.3', 'Lws', 7, 'Bientôt terminé'),
+(125, 'Fashion Shopping', 37, '3.5.8', '', 11, 'A améliorer !');
 
 -- --------------------------------------------------------
 
@@ -110,24 +113,25 @@ CREATE TABLE IF NOT EXISTS `projects_plugins` (
 `id` int(11) NOT NULL,
   `id_projects` int(11) NOT NULL,
   `id_plugins` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS POUR LA TABLE `projects_plugins`:
+--   `id_projects`
+--       `projects` -> `id`
+--   `id_plugins`
+--       `plugins` -> `id`
+--
 
 --
 -- Contenu de la table `projects_plugins`
 --
 
 INSERT INTO `projects_plugins` (`id`, `id_projects`, `id_plugins`) VALUES
-(32, 84, 5),
-(33, 84, 6),
-(34, 84, 7),
-(57, 85, 11),
-(58, 86, 5),
-(59, 86, 6),
-(60, 86, 7),
-(61, 87, 7),
-(62, 87, 8),
-(63, 87, 9),
-(64, 87, 10);
+(90, 122, 15),
+(91, 123, 16),
+(92, 124, 17),
+(93, 125, 18);
 
 -- --------------------------------------------------------
 
@@ -162,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `pseudo` varchar(225) NOT NULL,
   `email` varchar(225) NOT NULL,
   `motdepasse` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `users`
@@ -175,7 +179,10 @@ INSERT INTO `users` (`id`, `pseudo`, `email`, `motdepasse`) VALUES
 (4, 'apple', 'ice.tea.mangue@gmail.fr', '3be803573bf56690e1c7b7b457dc45a08047eec5'),
 (5, 'sallysmiile', 'hallo@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921'),
 (6, 'sallysmiile', 'halloo@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921'),
-(7, 'sallysmiile', 'hallouo@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921');
+(7, 'sallysmiile', 'hallouo@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921'),
+(8, 'sally', 'LA@gmail.com', '70c881d4a26984ddce795f6f71817c9cf4480e79'),
+(9, 'Théo', 'theo@gmail.com', 'cf91a9cfe0882326bc9e5276dcdb1cce8cbef4ce'),
+(10, 'Hysis', 'los@gmail.com', '71c61afd3e6c02b5e4c2b4234787bd42baf83efd');
 
 --
 -- Index pour les tables exportées
@@ -225,22 +232,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `cms_languages`
 --
 ALTER TABLE `cms_languages`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT pour la table `plugins`
 --
 ALTER TABLE `plugins`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `projects`
 --
 ALTER TABLE `projects`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=109;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=126;
 --
 -- AUTO_INCREMENT pour la table `projects_plugins`
 --
 ALTER TABLE `projects_plugins`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=65;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
 --
 -- AUTO_INCREMENT pour la table `statuts`
 --
@@ -250,7 +257,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- Contraintes pour les tables exportées
 --

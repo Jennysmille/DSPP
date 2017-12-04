@@ -1,24 +1,10 @@
-	<div class="container">
+<div class="container">
 	<div class="row">
-	   <div class="col-lg-6 col-md-6 navbar-left">
-			 <?php
- 			if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']);
- 			 {
-
- 			 ?><br>
- 			<a href="deconnexion.php">Me déconnecter</a>
- 			 <?php
- 			 }
- 			 ?>
-		 </div>
-
-		<div class="jumbotron text-center">
-			<h1>GESTION SITES SITE</h1>
-		</div>
-
-
-
-
+			<div class="col-md-12 jumbotron text-center">
+				<a class="btn btn-primary pull-left" href="login.php">Me déconnecter !</a><br/>
+				<h1>GESTION SITES WEB</h1>
+			</div>
+	</div>
 
 	<div class="row">
 		<div class="col-lg-12">
